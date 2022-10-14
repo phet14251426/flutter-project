@@ -12,6 +12,16 @@ class LoginUI extends StatefulWidget {
 class _LoginUIState extends State<LoginUI> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Color(0xFFF28705),
+      body: Text(
+        'Coming soon',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 50,
+        ),
+      ),
+    );
   }
 }
