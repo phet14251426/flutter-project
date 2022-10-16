@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:francies_mobie_1/views/home_page.dart';
+import 'package:francies_mobie_1/views/navbar_ui.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -39,25 +41,22 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   Card _buildForm() => Card(
-        margin: EdgeInsets.only(bottom: 100, left: 200, right: 200, top: 100),
-        elevation: 20.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(22.0),
-          child: FormInput(
-            
-          ),
-        ),
-      );
+    margin: EdgeInsets.only(bottom: 100, left: 200, right: 200, top: 100),
+    elevation: 20.0,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20.0),
+    ),
+    child: Padding(
+      padding: const EdgeInsets.all(22.0),
+      child: FormInput(),
+    ),
+  );
 }
 
 class FormInput extends StatefulWidget {
   TextEditingController usernameControllor = TextEditingController();
   TextEditingController passwordControllor = TextEditingController();
 
-  
   @override
   State<FormInput> createState() => _FormInputState();
 }
@@ -97,23 +96,23 @@ class _FormInputState extends State<FormInput> {
             controller: widget.passwordControllor,
             decoration: InputDecoration(
               border: OutlineInputBorder(
+                
                 borderRadius: BorderRadius.circular(20.0),
               ),
               hintText: 'Password',
-              suffixIcon: IconButton( 
-                icon: FaIcon(
-                  _obscureTextPassword 
-                  ? FontAwesomeIcons.eye
-                  : FontAwesomeIcons.eyeSlash,
-                  color: _color,
-                  size: 15.0,
-                ),
-                onPressed: (){
-                  setState(() {
-                    _obscureTextPassword = !_obscureTextPassword;
-                  });
-                }
-              ),
+              suffixIcon: IconButton(
+                  icon: FaIcon(
+                    _obscureTextPassword
+                        ? FontAwesomeIcons.eye
+                        : FontAwesomeIcons.eyeSlash,
+                    color: _color,
+                    size: 15.0,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _obscureTextPassword = !_obscureTextPassword;
+                    });
+                  }),
             ),
           ),
         ),
@@ -125,7 +124,12 @@ class _FormInputState extends State<FormInput> {
               color: Color(0xFFF28705)),
           child: TextButton(
             onPressed: () {
-              // todo
+              Navigator.push(
+                  context,
+                MaterialPageRoute(
+                  builder: (context) => NavbarEmployeeUI(),
+                )
+              );
             },
             child: Text(
               'Login',

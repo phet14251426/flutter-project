@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:francies_mobie_1/views/confirm.dart';
+import 'package:francies_mobie_1/views/home_page.dart';
 import 'package:francies_mobie_1/views/menu_ui.dart';
 import 'package:francies_mobie_1/views/order_ui.dart';
 import 'package:francies_mobie_1/views/select_table_ui.dart';
@@ -14,7 +15,7 @@ class NavbarEmployeeUI extends StatefulWidget {
 class _NavbarEmployeeUIState extends State<NavbarEmployeeUI> {
   int _selectedIndex = 0;
   final screeens = [
-    SelectTableUI(),
+    HomePage(),
     MenuUI(),
     ConfirmUI(),
     OrderUI(),
