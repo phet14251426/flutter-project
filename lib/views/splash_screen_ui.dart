@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:francies_mobie_1/views/login_ui.dart';
+import 'package:francies_mobie_1/views/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatefulWidget {

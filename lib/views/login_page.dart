@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:francies_mobie_1/login/widgets/header.dart';
+import 'package:francies_mobie_1/login/widgets/login_from.dart';
 
 class LoginUI extends StatefulWidget {
   const LoginUI({super.key});
@@ -14,13 +16,15 @@ class _LoginUIState extends State<LoginUI> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF28705),
-      body: Text(
-        'Coming soon',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 50,
-        ),
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              Header(),
+              LoginForm(),
+            ],
+          ),
+        ],
       ),
     );
   }
