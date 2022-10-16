@@ -11,21 +11,21 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  void initState() {
-    //หน่วงเวลา
-    Future.delayed(
-      Duration(
-        seconds: 5,
-      ),
-      () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => LoginUI(),
-        ),
-      ),
-    );
-    super.initState();
-  }
+  // void initState() {
+  //   //หน่วงเวลา
+  //   Future.delayed(
+  //     Duration(
+  //       seconds: 5,
+  //     ),
+  //     () => Navigator.pushReplacement(
+  //       context,
+  //       MaterialPageRoute(
+  //         builder: (context) => LoginUI(),
+  //       ),
+  //     ),
+  //   );
+  //   super.initState();
+  // }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  'Create By : SAU Company Co., Ltd.',
+                  'Created By : SAU Company Co., Ltd.',
                   style: GoogleFonts.kanit(
                     color: Colors.white,
                   ),
