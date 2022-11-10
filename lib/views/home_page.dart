@@ -3,8 +3,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:francies_mobie_1/constants/assets.dart';
-import 'package:francies_mobie_1/login/widgets/order_at_home.dart';
-import 'package:francies_mobie_1/login/widgets/order_at_restaurant.dart';
+import 'package:francies_mobie_1/home/widgets/order_at_home.dart';
+import 'package:francies_mobie_1/home/widgets/order_at_restaurant.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
