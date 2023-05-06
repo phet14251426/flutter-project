@@ -123,14 +123,12 @@ class _FormInputState extends State<FormInput> {
               borderRadius: BorderRadius.circular(20.0),
               color: Color(0xFFF28705)),
           child: TextButton(
-            onPressed: () {
-              Navigator.push(
+            onPressed: () async => Navigator.push(
                   context,
                 MaterialPageRoute(
                   builder: (context) => NavbarEmployeeUI(),
                 )
-              );
-            },
+              ),
             child: Text(
               'Login',
               style: TextStyle(color: Colors.white, fontSize: 25),

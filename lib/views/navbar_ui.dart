@@ -16,7 +16,6 @@ class _NavbarEmployeeUIState extends State<NavbarEmployeeUI> {
   int _selectedIndex = 0;
   final screeens = [
     HomePage(),
-    MenuUI(),
     ConfirmUI(),
     OrderUI(),
   ];
@@ -66,10 +65,6 @@ class _NavbarEmployeeUIState extends State<NavbarEmployeeUI> {
             BottomNavigationBarItem(
               icon: Icon(Icons.table_bar_sharp),
               label: 'เลือกที่นั่ง',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.food_bank),
-              label: 'เมนูอาหาร',
             ),
             BottomNavigationBarItem(
               icon: Icon(

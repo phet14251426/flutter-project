@@ -15,7 +15,6 @@ class _HomeSelectUIState extends State<HomeSelectUI> {
   int _selectedIndex = 0;
   final screeens = [
     SelectTableUI(),
-    MenuUI(),
     ConfirmUI(),
     OrderUI(),
   ];
