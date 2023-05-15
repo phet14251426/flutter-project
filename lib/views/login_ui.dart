@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:francies_mobie_1/login/widgets/button_global.dart';
 import 'package:francies_mobie_1/login/widgets/text_form_global.dart';
+import 'package:francies_mobie_1/views/home_page.dart';
+import 'package:francies_mobie_1/views/splash_screen_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController usernameController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
 
-  void Login(String username, String password) async {
+  Future<void> Login(String username, String password) async {
     try {
       Response response = await post(
         Uri.parse('http://192.168.1.107:8081/api/Mobile/login'),
@@ -20,9 +29,13 @@ class LoginPage extends StatelessWidget {
       );
 
       if (response.statusCode == 200) {
+        Navigator.push(context as BuildContext,
+            MaterialPageRoute(builder: (context) => HomePage()));
         print('Login successfully');
       } else {
-        print('failed');
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('Failed to Login')));
+        print('failed to login');
       }
     } catch (e) {
       print(e.toString());
@@ -81,6 +94,8 @@ class LoginPage extends StatelessWidget {
                 //LoginButton
                 InkWell(
                   onTap: () {
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => HomePage()));
                     Login(
                       usernameController.text.toString(),
                       passwordController.text.toString(),
