@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:francies_mobie_1/menu/witgets/menu_page.dart';
+import 'package:francies_mobie_1/menu/widget/menu_page.dart';
 
 class MenuUI extends StatelessWidget {
   const MenuUI({super.key});
@@ -11,9 +11,7 @@ class MenuUI extends StatelessWidget {
         backgroundColor: Color(0xFFF28705),
       ),
       body: ListView(
-        children: [
-          Menu_page(),
-        ],
+        children: [Menu_page()],
       ),
     );
   }

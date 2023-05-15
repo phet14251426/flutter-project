@@ -12,15 +12,29 @@ class _OrderUIState extends State<OrderUI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(
-          'คำสั่งซื้อ',
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),
+      appBar: AppBar(
+        backgroundColor: Color(0xFFF28705),
+        leading: IconButton(
+          iconSize: 30,
+          icon: const Icon(Icons.arrow_back_ios_rounded),
+          onPressed: () {},
+
+          //ย้อนกลับ
         ),
+        actions: [
+          IconButton(
+            iconSize: 30,
+            icon: const Icon(Icons.logout_rounded),
+            onPressed: () {},
+            //logout
+          )
+        ],
       ),
+      // body: controller.get Container(
+      //   child: Center(
+      //     child:
+      //   ),
+      // ),
     );
   }
 }

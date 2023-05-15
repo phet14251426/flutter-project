@@ -25,8 +25,8 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   void dispose() {
-    usernameControllor?.dispose();
-    passwordControllor?.dispose();
+    usernameControllor.dispose();
+    passwordControllor.dispose();
     super.dispose();
   }
 
@@ -41,16 +41,16 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   Card _buildForm() => Card(
-    margin: EdgeInsets.only(bottom: 100, left: 200, right: 200, top: 100),
-    elevation: 20.0,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20.0),
-    ),
-    child: Padding(
-      padding: const EdgeInsets.all(22.0),
-      child: FormInput(),
-    ),
-  );
+        margin: EdgeInsets.only(bottom: 100, left: 200, right: 200, top: 100),
+        elevation: 20.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(22.0),
+          child: FormInput(),
+        ),
+      );
 }
 
 class FormInput extends StatefulWidget {
@@ -75,67 +75,69 @@ class _FormInputState extends State<FormInput> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.all(10),
-          child: TextField(
-            controller: widget.usernameControllor,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20.0),
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.5,
+      height: MediaQuery.of(context).size.height * 0.5,
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: TextField(
+              controller: widget.usernameControllor,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                hintText: 'UserName',
               ),
-              hintText: 'UserName',
             ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(10),
-          child: TextField(
-            obscureText: _obscureTextPassword,
-            controller: widget.passwordControllor,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                
-                borderRadius: BorderRadius.circular(20.0),
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: TextField(
+              obscureText: _obscureTextPassword,
+              controller: widget.passwordControllor,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                hintText: 'Password',
+                suffixIcon: IconButton(
+                    icon: FaIcon(
+                      _obscureTextPassword
+                          ? FontAwesomeIcons.eye
+                          : FontAwesomeIcons.eyeSlash,
+                      color: _color,
+                      size: 15.0,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureTextPassword = !_obscureTextPassword;
+                      });
+                    }),
               ),
-              hintText: 'Password',
-              suffixIcon: IconButton(
-                  icon: FaIcon(
-                    _obscureTextPassword
-                        ? FontAwesomeIcons.eye
-                        : FontAwesomeIcons.eyeSlash,
-                    color: _color,
-                    size: 15.0,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _obscureTextPassword = !_obscureTextPassword;
-                    });
-                  }),
             ),
           ),
-        ),
-        Container(
-          height: 50,
-          width: 200,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.0),
-              color: Color(0xFFF28705)),
-          child: TextButton(
-            onPressed: () async => Navigator.push(
+          Container(
+            height: 50,
+            width: 200,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                color: Color(0xFFF28705)),
+            child: TextButton(
+              onPressed: () async => Navigator.push(
                   context,
-                MaterialPageRoute(
-                  builder: (context) => NavbarEmployeeUI(),
-                )
+                  MaterialPageRoute(
+                    builder: (context) => NavbarEmployeeUI(),
+                  )),
+              child: Text(
+                'Login',
+                style: TextStyle(color: Colors.white, fontSize: 25),
               ),
-            child: Text(
-              'Login',
-              style: TextStyle(color: Colors.white, fontSize: 25),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

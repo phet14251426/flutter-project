@@ -5,23 +5,111 @@ import 'package:flutter/material.dart';
 import 'package:francies_mobie_1/constants/assets.dart';
 import 'package:francies_mobie_1/home/widgets/order_at_home.dart';
 import 'package:francies_mobie_1/home/widgets/order_at_restaurant.dart';
+import 'package:francies_mobie_1/menu/widget/menu_ui.dart';
+import 'package:francies_mobie_1/views/confirm.dart';
+import 'package:francies_mobie_1/views/order_ui.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          order_at_restaurant(),
-          order_at_home(),
-        ],
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => OrderUI(), //รอเปลี่ยนไปหน้าเมนู
+                ));
+              },
+              child: Container(
+                width: 250,
+                height: 250,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 3,
+                      blurRadius: 10,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Column(
+                    children: [
+                      Container(
+                        child: Image.asset(
+                          "assets/images/restaurant.png",
+                          height: 170,
+                        ),
+                      ),
+                      Text(
+                        "ทานที่ร้าน",
+                        style: GoogleFonts.kanit(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ConfirmUI(), //รอเปลี่ยนไปหน้า menu
+                ));
+              },
+              child: Container(
+                width: 250,
+                height: 250,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 3,
+                        blurRadius: 10,
+                        offset: Offset(0, 3),
+                      ),
+                    ]),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Column(
+                    children: [
+                      Container(
+                        child: Image.asset(
+                          "assets/images/home.png",
+                          height: 170,
+                        ),
+                      ),
+                      Text(
+                        "สั่งกลับบ้าน",
+                        style: GoogleFonts.kanit(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:francies_mobie_1/views/login_page.dart';
+import 'package:francies_mobie_1/views/login_ui.dart';
 
 class ProductItem extends StatefulWidget {
   const ProductItem({super.key});
@@ -25,7 +26,7 @@ class _ProductItemState extends State<ProductItem> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LoginUI(),
+                        builder: (context) => LoginPage(),
                       ));
                 },
                 icon: Icon(
@@ -102,9 +103,9 @@ Expanded _buildInfo() => Expanded(
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900),
           ),
           Checkbox(
-            value: timeDilation != 1.0, onChanged: (bool? value) {  },
-            
+            value: timeDilation != 1.0,
+            onChanged: (bool? value) {},
           )
         ],
-  ),
-);
+      ),
+    );

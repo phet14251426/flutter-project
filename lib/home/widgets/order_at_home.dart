@@ -6,8 +6,7 @@ import 'package:francies_mobie_1/views/order_ui.dart';
 import 'package:francies_mobie_1/views/select_table_ui.dart';
 import 'package:francies_mobie_1/views/navbar_ui.dart';
 
-import '../../menu/witgets/menu_ui.dart';
-
+import '../../menu/widget/menu_ui.dart';
 
 class order_at_home extends StatefulWidget {
   const order_at_home({super.key});
