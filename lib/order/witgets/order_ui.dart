@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:francies_mobie_1/order/witgets/order_page.dart';
 
@@ -12,18 +11,22 @@ class OrderUI extends StatefulWidget {
 }
 
 class _OrderUIState extends State<OrderUI> {
-  int i = 1, x = 1, y = 1, z = 1;
-  void add() {
+  int i = 1, y = 1, z = 1;
+  List<int> x = [0, 0, 0, 0];
+  void add(int index) {
     setState(() {
-      x++;
+      x[index]++;
       y++;
       z++;
     });
   }
 
-  void remove() {
+  void remove(int index) {
     setState(() {
-      x--;
+      x[index]--;
+      if (x[index] < 0) {
+        x[index] = 0;
+      }
       y--;
       z--;
     });
@@ -55,7 +58,7 @@ class _OrderUIState extends State<OrderUI> {
           shrinkWrap: true,
           childAspectRatio: 4,
           children: [
-            for (int i = 1; i < 4; i++,)
+            for (int i = 1; i < x.length; i++,)
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
                 child: Container(
@@ -131,7 +134,7 @@ class _OrderUIState extends State<OrderUI> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               FloatingActionButton.small(
-                                onPressed: remove,
+                                onPressed: () => remove(i),
                                 backgroundColor: Colors.white,
                                 child: Icon(
                                   Icons.remove,
@@ -139,14 +142,14 @@ class _OrderUIState extends State<OrderUI> {
                                 ),
                               ),
                               Text(
-                                "$x",
+                                x[i].toString(),
                                 style: TextStyle(
                                   fontSize: 30,
                                   color: Colors.white,
                                 ),
                               ),
                               FloatingActionButton.small(
-                                onPressed: add,
+                                onPressed: () => add(i),
                                 backgroundColor: Colors.white,
                                 child: Icon(
                                   Icons.add,
@@ -253,7 +256,7 @@ class _OrderUIState extends State<OrderUI> {
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children:  [
+                    children: [
                       Text(
                         "แซ่บๆเด้อ",
                         style: TextStyle(
@@ -276,7 +279,7 @@ class _OrderUIState extends State<OrderUI> {
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children:  [
+                    children: [
                       Text(
                         "ไม่เอาผักครับ",
                         style: TextStyle(
@@ -525,7 +528,7 @@ class _OrderUIState extends State<OrderUI> {
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children:  [
+                    children: [
                       Text(
                         "แซ่บๆเด้อ",
                         style: TextStyle(
@@ -548,7 +551,7 @@ class _OrderUIState extends State<OrderUI> {
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children:  [
+                    children: [
                       Text(
                         "ไม่เอาผักครับ",
                         style: TextStyle(
@@ -575,7 +578,7 @@ class _OrderUIState extends State<OrderUI> {
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children:  [
+                    children: [
                       Text(
                         "แซ่บๆเด้อ",
                         style: TextStyle(

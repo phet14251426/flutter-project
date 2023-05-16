@@ -16,7 +16,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:LoginPage(),
+      home:NavbarEmployeeUI(),
     ),
   );
 }
