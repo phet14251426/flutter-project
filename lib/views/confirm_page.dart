@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:francies_mobie_1/views/confirm.dart';
 
-class ConfirmUI extends StatelessWidget {
-  const ConfirmUI({super.key});
+class Confirm_page extends StatelessWidget {
+  const Confirm_page({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          
-        ],
-      ),
+     return Scaffold(
+     
+      body: ConfirmUI(),
+
+      //
     );
   }
 }

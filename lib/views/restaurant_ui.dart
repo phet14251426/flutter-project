@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../order/witgets/order_page.dart';
+import '../menu/witgets/menu_page.dart';
 
-class ConfirmUI extends StatefulWidget {
-  const ConfirmUI({super.key});
+class restaurantUI extends StatelessWidget {
+  const restaurantUI({super.key});
 
-  @override
-  State<ConfirmUI> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<ConfirmUI> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         GridView.count(
           crossAxisCount: 1,
           shrinkWrap: true,
           childAspectRatio: 4,
           children: [
-            for (int i = 1; i < 5; i++,)
+            for (int i = 1; i < 11; i++,)
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
                 child: Container(
@@ -40,7 +35,7 @@ class _MyWidgetState extends State<ConfirmUI> {
                   child: Row(
                     children: [
                       Icon(
-                        Icons.food_bank_outlined,
+                        Icons.table_bar,
                         size: 120,
                         color: Color(0xFFF28705),
                       ),
@@ -52,30 +47,18 @@ class _MyWidgetState extends State<ConfirmUI> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
-                              "รายการอาหารที่ $i",
+                              "โต๊ะที่ $i",
                               style: TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            TextButton(
-                              onPressed: () {
-                                //
-                              },
-                              child: Text(
-                                "กดเพื่อดูรายการ",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Color(0xFFF28705),
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
-                            ),
+                            
                           ],
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 100),
+                        padding: EdgeInsets.only(left: 150),
                         child: Container(
                           padding: EdgeInsets.only(
                               top: 10, bottom: 10, left: 30, right: 30),
@@ -85,13 +68,15 @@ class _MyWidgetState extends State<ConfirmUI> {
                             borderRadius: BorderRadius.circular(30),
                           ),
                           child: TextButton(
-                            onPressed: () async => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => OrderPage(),
-                                )),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Menu_page(),
+                                  ));
+                            },
                             child: Text(
-                              'ชำระเงิน',
+                              'เลือก',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 30),
                             ),

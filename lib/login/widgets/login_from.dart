@@ -5,6 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:francies_mobie_1/views/home_page.dart';
 import 'package:francies_mobie_1/views/navbar_ui.dart';
 
+import '../../views/register.dart';
+
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
 
@@ -118,14 +120,18 @@ class _FormInputState extends State<FormInput> {
               ),
             ),
           ),
-          Container(
-            height: 50,
-            width: 200,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: Color(0xFFF28705)),
-            child: TextButton(
-              onPressed: () async => Navigator.push(
+        ),
+        
+        
+        
+        Container(
+          height: 50,
+          width: 200,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+              color: Color(0xFFF28705)),
+          child: TextButton(
+            onPressed: () async => Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => NavbarEmployeeUI(),
@@ -136,8 +142,28 @@ class _FormInputState extends State<FormInput> {
               ),
             ),
           ),
-        ],
-      ),
+        ),
+        Padding(padding: EdgeInsets.all(4)),
+        Container(
+          height: 50,
+          width: 200,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+              color: Color(0xFFF28705)),
+          child: TextButton(
+            onPressed: () async => Navigator.push(
+                  context,
+                MaterialPageRoute(
+                  builder: (context) => registerPage(),
+                )
+              ),
+            child: Text(
+              'SignUp',
+              style: TextStyle(color: Colors.white, fontSize: 25),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
