@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:francies_mobie_1/login/witgets/button_global.dart';
 import 'package:francies_mobie_1/login/witgets/text_form_global.dart';
 import 'package:francies_mobie_1/views/home_page.dart';
+import 'package:francies_mobie_1/views/register.dart';
 import 'package:francies_mobie_1/views/splash_screen_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
@@ -116,7 +117,40 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                     child: Text(
-                      'Login',
+                      'SignIn',
+                      style: GoogleFonts.kanit(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(padding: EdgeInsets.all(10),),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => registerPage(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Colors.deepOrange.shade500,
+                      borderRadius: BorderRadius.circular(6),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
+                    child: Text(
+                      'SignUp',
                       style: GoogleFonts.kanit(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
