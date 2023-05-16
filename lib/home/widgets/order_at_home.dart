@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:francies_mobie_1/views/confirm.dart';
 import 'package:francies_mobie_1/views/home_page.dart';
-import 'package:francies_mobie_1/views/menu_ui.dart';
-import 'package:francies_mobie_1/views/order_ui.dart';
+
 import 'package:francies_mobie_1/views/select_table_ui.dart';
 import 'package:francies_mobie_1/views/navbar_ui.dart';
-
+import 'package:francies_mobie_1/menu/witgets/menu_page.dart';
 import '../../menu/witgets/menu_ui.dart';
 
 
@@ -37,7 +36,7 @@ class _order_at_homeState extends State<order_at_home> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => MenuUI(),
+                  builder: (context) => Menu_page(),
                 ));
           },
           child: Center(

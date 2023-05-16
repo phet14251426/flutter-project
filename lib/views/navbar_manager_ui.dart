@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:francies_mobie_1/views/confirm.dart';
-import 'package:francies_mobie_1/views/menu_ui.dart';
-import 'package:francies_mobie_1/views/order_ui.dart';
+
+
 import 'package:francies_mobie_1/views/select_table_ui.dart';
+
+import '../order/witgets/order_ui.dart';
 
 class HomeSelectUI extends StatefulWidget {
   const HomeSelectUI({super.key});

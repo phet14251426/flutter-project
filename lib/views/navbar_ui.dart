@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:francies_mobie_1/menu/witgets/menu_ui.dart';
 import 'package:francies_mobie_1/views/confirm.dart';
 import 'package:francies_mobie_1/views/home_page.dart';
-import 'package:francies_mobie_1/views/menu_ui.dart';
-import 'package:francies_mobie_1/views/order_ui.dart';
+
 import 'package:francies_mobie_1/views/select_table_ui.dart';
+
+import '../order/witgets/order_ui.dart';
+import 'confirm_page.dart';
+import 'login_page.dart';
 
 class NavbarEmployeeUI extends StatefulWidget {
   const NavbarEmployeeUI({super.key});
@@ -16,7 +20,7 @@ class _NavbarEmployeeUIState extends State<NavbarEmployeeUI> {
   int _selectedIndex = 0;
   final screeens = [
     HomePage(),
-    ConfirmUI(),
+    Confirm_page(),
     OrderUI(),
   ];
 
@@ -32,13 +36,20 @@ class _NavbarEmployeeUIState extends State<NavbarEmployeeUI> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80),
         child: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Color(0xFFF28705),
           actions: [
             Row(
               children: [
                 IconButton(
                   padding: EdgeInsets.fromLTRB(0.0, 10.0, 15, 15),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginUI(),
+                        ),);
+                  },
                   icon: Icon(
                     Icons.logout_rounded,
                     size: 45,
@@ -63,14 +74,14 @@ class _NavbarEmployeeUIState extends State<NavbarEmployeeUI> {
           backgroundColor: Color(0xFFF28705),
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.table_bar_sharp),
+              icon: Icon(Icons.check),
               label: 'เลือกที่นั่ง',
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.work,
+                Icons.outbox_rounded,
               ),
-              label: 'เตรียมเสิร์ฟ',
+              label: 'ออเดอร์',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.access_time),

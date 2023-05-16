@@ -6,6 +6,9 @@ import 'package:francies_mobie_1/constants/assets_home.dart';
 import 'package:francies_mobie_1/views/navbar_ui.dart';
 import 'package:francies_mobie_1/constants/assets_home.dart';
 
+import '../../menu/witgets/menu_page.dart';
+import '../../views/restaurant_page.dart';
+
 
 class order_at_restaurant extends StatefulWidget {
   final double elevation = 20;
@@ -30,13 +33,12 @@ class _order_at_restaurantState extends State<order_at_restaurant> {
         width: 400,
         margin: EdgeInsets.all(20),
         child: TextButton(
-          onPressed: () {
-            // Navigator.push(
-            //     context,
-            //   MaterialPageRoute(
-            //     builder: (context) => (),
-            //   )
-            // );
+           onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RestaurantPage(),
+                ));
           },
           child: Center(
             child: Column(
@@ -50,7 +52,7 @@ class _order_at_restaurantState extends State<order_at_restaurant> {
                   color: Color(0xFFF28705),
                 ),
                 Text(
-                  'นั้งกินที่ร้าน',
+                  'ทานที่ร้าน',
                   style: TextStyle(
                       fontSize: 30.0,
                       fontWeight: FontWeight.w500,
