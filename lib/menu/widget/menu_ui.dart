@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:francies_mobie_1/menu/witgets/menu_page.dart';
-import 'package:francies_mobie_1/menu/witgets/single_item_page.dart';
+import 'package:francies_mobie_1/menu/widget/menu_page.dart';
+import 'package:francies_mobie_1/menu/widget/single_item_page.dart';
 
 
 

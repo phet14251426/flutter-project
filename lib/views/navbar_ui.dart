@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:francies_mobie_1/menu/witgets/menu_ui.dart';
+import 'package:francies_mobie_1/menu/widget/menu_page.dart';
 import 'package:francies_mobie_1/views/confirm.dart';
+import 'package:francies_mobie_1/views/confirm_page.dart';
 import 'package:francies_mobie_1/views/home_page.dart';
-
+import 'package:francies_mobie_1/views/login_ui.dart';
 import 'package:francies_mobie_1/views/select_table_ui.dart';
+import 'package:francies_mobie_1/views/login_page.dart';
 
 import '../order/witgets/order_ui.dart';
-import 'confirm_page.dart';
-import 'login_page.dart';
 
 class NavbarEmployeeUI extends StatefulWidget {
   const NavbarEmployeeUI({super.key});
@@ -47,7 +47,7 @@ class _NavbarEmployeeUIState extends State<NavbarEmployeeUI> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => LoginUI(),
+                          builder: (context) => LoginPage(),
                         ),);
                   },
                   icon: Icon(

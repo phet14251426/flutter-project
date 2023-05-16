@@ -1,8 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:francies_mobie_1/menu/witgets/menu_page.dart';
-import 'package:francies_mobie_1/menu/witgets/menu_ui.dart';
+import 'package:francies_mobie_1/menu/widget/menu_page.dart';
+import 'package:francies_mobie_1/menu/widget/menu_ui.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../views/navbar_ui.dart';

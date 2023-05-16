@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:francies_mobie_1/order/witgets/order_page.dart';
-import 'package:sliding_sheet/sliding_sheet.dart';
 
 import '../../views/navbar_ui.dart';
 
