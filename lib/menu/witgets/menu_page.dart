@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:francies_mobie_1/menu/widget/menu_ui.dart';
+import 'package:francies_mobie_1/menu/witgets/menu_ui.dart';
 import 'package:matcher/matcher.dart';
-import 'package:francies_mobie_1/menu/widget/menu_navber.dart';
+import 'package:francies_mobie_1/menu/witgets/menu_navber.dart';
 
 import '../../order/witgets/order_page.dart';
 

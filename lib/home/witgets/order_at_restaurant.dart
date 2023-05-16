@@ -6,7 +6,7 @@ import 'package:francies_mobie_1/constants/assets_home.dart';
 import 'package:francies_mobie_1/views/navbar_ui.dart';
 import 'package:francies_mobie_1/constants/assets_home.dart';
 
-import '../../menu/widget/menu_page.dart';
+import '../../menu/witgets/menu_page.dart';
 import '../../views/restaurant_page.dart';
 
 

@@ -1,97 +1,135 @@
-// import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:francies_mobie_1/login/witgets/button_global.dart';
+import 'package:francies_mobie_1/login/witgets/text_form_global.dart';
+import 'package:francies_mobie_1/views/home_page.dart';
+import 'package:francies_mobie_1/views/splash_screen_ui.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart';
+import 'navbar_ui.dart';
 
-// import 'package:flutter/material.dart';
-// import 'package:flutter/src/widgets/container.dart';
-// import 'package:flutter/src/widgets/framework.dart';
-// import 'package:francies_mobie_1/login/widgets/header.dart';
-// import 'package:francies_mobie_1/login/widgets/login_from.dart';
-// import 'package:francies_mobie_1/login/widgets/mytextfield.dart';
-// import 'package:francies_mobie_1/models/login_model.dart';
-// import 'package:http/http.dart';
+class LoginPage extends StatefulWidget {
+  LoginPage({super.key});
 
-// class LoginUI extends StatefulWidget {
-//   LoginUI({super.key});
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
 
-//   @override
-//   State<LoginUI> createState() => _LoginUIState();
-// }
+class _LoginPageState extends State<LoginPage> {
+  final TextEditingController usernameController = TextEditingController();
 
-// class _LoginUIState extends State<LoginUI> {
-//   late LoginRequestModel requestModel;
+  final TextEditingController passwordController = TextEditingController();
 
-//   @override
-//   void initState() {
-//     super.initState();
-//     requestModel = new LoginRequestModel(password: '', username: '');
-//   }
+  Future<void> Login(String username, String password) async {
+    try {
+      Response response = await post(
+        Uri.parse('http://192.168.1.107:8081/api/Mobile/login'),
+        body: {
+          'username': username,
+          'password': password,
+        },
+      );
 
-//   @override
-//   Widget build(BuildContext context) {
-//     double currentWidth = MediaQuery.of(context).size.width;
-//     double currentHeight = MediaQuery.of(context).size.height;
+      if (response.statusCode == 200) {
+        Navigator.push(context as BuildContext,
+            MaterialPageRoute(builder: (context) => NavbarEmployeeUI()));
+        print('Login successfully');
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('Failed to Login')));
+        print('failed to login');
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 
-//     final TextEditingController usernameControllor = TextEditingController();
-//     final TextEditingController passwordControllor = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFFF28705),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            width: double.infinity,
+            padding: EdgeInsets.all(15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  child: Image(
+                    image: AssetImage('assets/images/simpleLogo.png'),
+                    height: 275,
+                    width: 275,
+                  ),
+                ),
+                SizedBox(height: 25),
+                Text(
+                  'เข้าสู่ระบบ',
+                  style: GoogleFonts.kanit(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 25),
 
-//     void login(String username, password) async {
-//       try {
-//         Response response = await post(
-//           Uri.parse('http://192.168.1.107:8081/api/Mobile/login'),
-//           body: {
-//             'username': username,
-//             'password': password,
-//           },
-//         );
+                ///Username
+                TextFormGlobal(
+                  controller: usernameController,
+                  text: 'Username',
+                  obscure: false,
+                  textInputType: TextInputType.text,
+                ),
+                SizedBox(height: 25),
 
-//         if (response.statusCode == 200) {
-//           var data = jsonDecode(response.body.toString());
-//           print(data['token']);
-//           print('Welcome');
-//         } else {
-//           print('failed to login');
-//         }
-//       } catch (e) {
-//         print(e.toString());
-//       }
-//     }
+                ///password
+                TextFormGlobal(
+                  controller: passwordController,
+                  text: 'Password',
+                  obscure: true,
+                  textInputType: TextInputType.text,
+                ),
 
-//     return Scaffold(
-//       backgroundColor: Color(0xFFF28705),
-//       body: SafeArea(
-//         child: Center(
-//           child: Column(
-//             children: [
-//               //logo
-//               // Header(),
-//               const SizedBox(height: 25),
-//               //username
-//               TextFormField(
-//                 onSaved: (input) => requestModel.username = input!,
-//                 decoration: InputDecoration(
-//                   hintText: 'Username',
-//                 ),
-//               ),
-//               const SizedBox(height: 25),
-//               //password
-//               TextFormField(
-//                 onSaved: (input) => requestModel.password = input!,
-//                 obscureText: true,
-//                 decoration: InputDecoration(
-//                   hintText: 'Password',
-//                 ),
-//               ),
-//               const SizedBox(height: 25),
-//               //loginbutton
-//               LoginButton(
-//                 onTap: () {
-//                   login(usernameControllor.text.toString(),
-//                       passwordControllor.text.toString());
-//                 },
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+                SizedBox(height: 25),
+                //LoginButton
+                InkWell(
+                  onTap: () {
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => NavbarEmployeeUI()));
+                    Login(
+                      usernameController.text.toString(),
+                      passwordController.text.toString(),
+                    );
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Colors.deepOrange.shade500,
+                      borderRadius: BorderRadius.circular(6),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
+                    child: Text(
+                      'Login',
+                      style: GoogleFonts.kanit(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

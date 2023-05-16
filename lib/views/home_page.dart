@@ -3,12 +3,15 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:francies_mobie_1/constants/assets.dart';
-import 'package:francies_mobie_1/home/widgets/order_at_home.dart';
-import 'package:francies_mobie_1/home/widgets/order_at_restaurant.dart';
-import 'package:francies_mobie_1/menu/widget/menu_ui.dart';
+import 'package:francies_mobie_1/home/witgets/order_at_home.dart';
+import 'package:francies_mobie_1/home/witgets/order_at_restaurant.dart';
+import 'package:francies_mobie_1/menu/witgets/menu_ui.dart';
 import 'package:francies_mobie_1/views/confirm.dart';
 import 'package:francies_mobie_1/views/order_ui.dart';
+import 'package:francies_mobie_1/views/restaurant_page.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../menu/witgets/menu_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -18,12 +21,13 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(
+          
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             InkWell(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => OrderUI(), //รอเปลี่ยนไปหน้าเมนู
+                  builder: (context) => RestaurantPage(), //รอเปลี่ยนไปหน้าเมนู
                 ));
               },
               child: Container(
@@ -69,7 +73,7 @@ class HomePage extends StatelessWidget {
             InkWell(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => ConfirmUI(), //รอเปลี่ยนไปหน้า menu
+                  builder: (context) => Menu_page(), //รอเปลี่ยนไปหน้า menu
                 ));
               },
               child: Container(

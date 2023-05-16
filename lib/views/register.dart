@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:francies_mobie_1/views/login_ui.dart';
-
+import 'package:francies_mobie_1/views/login_page.dart';
 class registerPage extends StatefulWidget {
   const registerPage({super.key});
 
@@ -107,3 +106,5 @@ class _registerPageState extends State<registerPage> {
     );
   }
 }
+
+

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:francies_mobie_1/views/confirm.dart';
 import 'package:francies_mobie_1/views/home_page.dart';
-
-import 'package:francies_mobie_1/views/select_table_ui.dart';
 import 'package:francies_mobie_1/views/navbar_ui.dart';
-import 'package:francies_mobie_1/menu/widget/menu_page.dart';
-import '../../menu/widget/menu_ui.dart';
+import 'package:francies_mobie_1/menu/witgets/menu_page.dart';
+import '../../menu/witgets/menu_ui.dart';
 
 
 class order_at_home extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:francies_mobie_1/menu/widget/menu_page.dart';
-import 'package:francies_mobie_1/menu/widget/single_item_page.dart';
+import 'package:francies_mobie_1/menu/witgets/menu_page.dart';
+import 'package:francies_mobie_1/menu/witgets/single_item_page.dart';
 
 
 
@@ -14,6 +14,7 @@ class MenuUI extends StatefulWidget {
 class _MenuUIState extends State<MenuUI> {
 
   int price = 450;
+  String productname = 'แซ่บๆเด้อ';
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -55,7 +56,7 @@ class _MenuUIState extends State<MenuUI> {
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "แซ่บๆเด้อ",
+                    "$productname",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

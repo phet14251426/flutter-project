@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:francies_mobie_1/menu/widget/menu_ui.dart';
+import 'package:francies_mobie_1/menu/witgets/menu_ui.dart';
 import 'package:francies_mobie_1/views/restaurant_ui.dart';
  
 class RestaurantPage extends StatelessWidget {
