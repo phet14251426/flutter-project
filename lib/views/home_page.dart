@@ -2,7 +2,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:francies_mobie_1/constants/assets.dart';
 import 'package:francies_mobie_1/home/witgets/order_at_home.dart';
 import 'package:francies_mobie_1/home/witgets/order_at_restaurant.dart';
 import 'package:francies_mobie_1/menu/witgets/menu_ui.dart';

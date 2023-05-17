@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:francies_mobie_1/menu/witgets/menu_page.dart';
 import 'package:francies_mobie_1/menu/witgets/menu_ui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
@@ -81,7 +82,11 @@ class _SingleItemPageState extends State<SingleItemPage> {
 
   void remove() {
     setState(() {
-      i--;
+       i--;
+      if (i < 0) {
+        i = 0;
+      }
+     
     });
   }
 
@@ -204,7 +209,7 @@ class _SingleItemPageState extends State<SingleItemPage> {
                         onPressed: () async => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => MenuUI(),
+                              builder: (context) => Menu_page(),
                             )),
                         child: Text(
                           'เพิ่มในตะกร้า',

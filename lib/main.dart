@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:francies_mobie_1/login/witgets/login_from.dart';
 import 'package:francies_mobie_1/home/witgets/order_at_home.dart';
 import 'package:francies_mobie_1/menu/witgets/menu_page.dart';
 import 'package:francies_mobie_1/menu/witgets/menu_ui.dart';
@@ -16,7 +15,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:NavbarEmployeeUI(),
+      home:LoginPage(),
     ),
   );
 }

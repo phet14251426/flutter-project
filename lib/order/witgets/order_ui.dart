@@ -12,7 +12,7 @@ class OrderUI extends StatefulWidget {
 
 class _OrderUIState extends State<OrderUI> {
   int i = 1, y = 1, z = 1;
-  List<int> x = [0, 0, 0, 0];
+  List<int> x = [1, 1, 1, 1];
   void add(int index) {
     setState(() {
       x[index]++;
@@ -58,112 +58,321 @@ class _OrderUIState extends State<OrderUI> {
           shrinkWrap: true,
           childAspectRatio: 4,
           children: [
-            for (int i = 1; i < x.length; i++,)
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-                child: Container(
-                  margin: EdgeInsets.only(top: 10),
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.5),
-                        spreadRadius: 3,
-                        blurRadius: 5,
-                        offset: Offset(2, 3),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        child: CircleAvatar(
-                          radius: 100,
-                          backgroundImage: AssetImage(
-                            "assets/images/$i.png",
-                          ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+              child: Container(
+                margin: EdgeInsets.only(top: 10),
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      spreadRadius: 3,
+                      blurRadius: 5,
+                      offset: Offset(2, 3),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      child: CircleAvatar(
+                        radius: 100,
+                        backgroundImage: AssetImage(
+                          "assets/images/3.png",
                         ),
                       ),
-                      Container(
-                        width: 200,
+                    ),
+                    Container(
+                      width: 200,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "ไข่ม้วน",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              //
+                            },
+                            child: Text(
+                              "เพิ่มเติม",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Color(0xFFF28705),
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "250 B",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 200),
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            color: Color(0xFFF28705),
+                            borderRadius: BorderRadius.circular(10)),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              "แซ่บๆเด้อ",
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                //
-                              },
-                              child: Text(
-                                "เพิ่มเติม",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Color(0xFFF28705),
-                                  decoration: TextDecoration.underline,
-                                ),
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            FloatingActionButton.small(
+                              onPressed: () => remove(i),
+                              backgroundColor: Colors.white,
+                              child: Icon(
+                                Icons.remove,
+                                color: Color(0xFFF28705),
                               ),
                             ),
                             Text(
-                              "$totel B",
+                              x[i].toString(),
                               style: TextStyle(
                                 fontSize: 30,
-                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                            FloatingActionButton.small(
+                              onPressed: () => add(i),
+                              backgroundColor: Colors.white,
+                              child: Icon(
+                                Icons.add,
+                                color: Color(0xFFF28705),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 200),
-                        child: Container(
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              color: Color(0xFFF28705),
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              FloatingActionButton.small(
-                                onPressed: () => remove(i),
-                                backgroundColor: Colors.white,
-                                child: Icon(
-                                  Icons.remove,
-                                  color: Color(0xFFF28705),
-                                ),
-                              ),
-                              Text(
-                                x[i].toString(),
-                                style: TextStyle(
-                                  fontSize: 30,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              FloatingActionButton.small(
-                                onPressed: () => add(i),
-                                backgroundColor: Colors.white,
-                                child: Icon(
-                                  Icons.add,
-                                  color: Color(0xFFF28705),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+              child: Container(
+                margin: EdgeInsets.only(top: 10),
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      spreadRadius: 3,
+                      blurRadius: 5,
+                      offset: Offset(2, 3),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      child: CircleAvatar(
+                        radius: 100,
+                        backgroundImage: AssetImage(
+                          "assets/images/4.png",
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 200,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "พิซซ่า",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              //
+                            },
+                            child: Text(
+                              "เพิ่มเติม",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Color(0xFFF28705),
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "500 B",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 200),
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            color: Color(0xFFF28705),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            FloatingActionButton.small(
+                              onPressed: () => remove(i),
+                              backgroundColor: Colors.white,
+                              child: Icon(
+                                Icons.remove,
+                                color: Color(0xFFF28705),
+                              ),
+                            ),
+                            Text(
+                              x[i].toString(),
+                              style: TextStyle(
+                                fontSize: 30,
+                                color: Colors.white,
+                              ),
+                            ),
+                            FloatingActionButton.small(
+                              onPressed: () => add(i),
+                              backgroundColor: Colors.white,
+                              child: Icon(
+                                Icons.add,
+                                color: Color(0xFFF28705),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+              child: Container(
+                margin: EdgeInsets.only(top: 10),
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      spreadRadius: 3,
+                      blurRadius: 5,
+                      offset: Offset(2, 3),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      child: CircleAvatar(
+                        radius: 100,
+                        backgroundImage: AssetImage(
+                          "assets/images/1.png",
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 200,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "สปาเก็ตตี้",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              //
+                            },
+                            child: Text(
+                              "เพิ่มเติม",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Color(0xFFF28705),
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "250 B",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 200),
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            color: Color(0xFFF28705),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            FloatingActionButton.small(
+                              onPressed: () => remove(i),
+                              backgroundColor: Colors.white,
+                              child: Icon(
+                                Icons.remove,
+                                color: Color(0xFFF28705),
+                              ),
+                            ),
+                            Text(
+                              x[i].toString(),
+                              style: TextStyle(
+                                fontSize: 30,
+                                color: Colors.white,
+                              ),
+                            ),
+                            FloatingActionButton.small(
+                              onPressed: () => add(i),
+                              backgroundColor: Colors.white,
+                              child: Icon(
+                                Icons.add,
+                                color: Color(0xFFF28705),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
         Padding(
@@ -191,7 +400,7 @@ class _OrderUIState extends State<OrderUI> {
                   ),
                 ),
                 Text(
-                  "1350 B",
+                  "1000 B",
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -258,7 +467,7 @@ class _OrderUIState extends State<OrderUI> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "แซ่บๆเด้อ",
+                        "ไข่ม้วน",
                         style: TextStyle(
                           height: 3,
                           fontSize: 20,
@@ -266,7 +475,7 @@ class _OrderUIState extends State<OrderUI> {
                         ),
                       ),
                       Text(
-                        "x $y",
+                        "x 1",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
@@ -288,7 +497,7 @@ class _OrderUIState extends State<OrderUI> {
                         ),
                       ),
                       Text(
-                        "$totel B",
+                        "250 B",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
@@ -308,7 +517,7 @@ class _OrderUIState extends State<OrderUI> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
                       Text(
-                        "แซ่บๆเด้อ",
+                        "พิซซ่า",
                         style: TextStyle(
                           height: 3,
                           fontSize: 20,
@@ -338,7 +547,7 @@ class _OrderUIState extends State<OrderUI> {
                         ),
                       ),
                       Text(
-                        "$totel B",
+                        "500 B",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
@@ -358,7 +567,7 @@ class _OrderUIState extends State<OrderUI> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "แซ่บๆเด้อ",
+                        "สปาเก็ตตี้",
                         style: TextStyle(
                           height: 3,
                           fontSize: 20,
@@ -366,7 +575,7 @@ class _OrderUIState extends State<OrderUI> {
                         ),
                       ),
                       Text(
-                        "x $z",
+                        "x 1",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
@@ -388,7 +597,7 @@ class _OrderUIState extends State<OrderUI> {
                         ),
                       ),
                       Text(
-                        "$totel B",
+                        "250 B",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
@@ -420,7 +629,7 @@ class _OrderUIState extends State<OrderUI> {
                         ),
                       ),
                       Text(
-                        "1350 B",
+                        "1000 B",
                         style: TextStyle(
                             fontSize: 30, fontWeight: FontWeight.bold),
                       ),
@@ -502,7 +711,7 @@ class _OrderUIState extends State<OrderUI> {
                 ),
               ),
               Text(
-                "คิวที่ 12",
+                "ออเดอร์ที่ 1",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -530,7 +739,7 @@ class _OrderUIState extends State<OrderUI> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "แซ่บๆเด้อ",
+                        "ไข่ม้วน",
                         style: TextStyle(
                           height: 3,
                           fontSize: 20,
@@ -538,7 +747,7 @@ class _OrderUIState extends State<OrderUI> {
                         ),
                       ),
                       Text(
-                        "x $y",
+                        "x 1",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
@@ -560,7 +769,7 @@ class _OrderUIState extends State<OrderUI> {
                         ),
                       ),
                       Text(
-                        "$totel B",
+                        "250 B",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
@@ -580,57 +789,7 @@ class _OrderUIState extends State<OrderUI> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "แซ่บๆเด้อ",
-                        style: TextStyle(
-                          height: 3,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "x $z",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 10, left: 10),
-                child: Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                        "",
-                        style: TextStyle(
-                          height: 3,
-                          fontSize: 12,
-                        ),
-                      ),
-                      Text(
-                        "450 B",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Divider(
-                height: 10,
-                thickness: 1,
-                color: Colors.grey,
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 10, left: 10),
-                child: Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                        "แซ่บๆเด้อ",
+                        "พิซซ่า",
                         style: TextStyle(
                           height: 3,
                           fontSize: 20,
@@ -660,7 +819,57 @@ class _OrderUIState extends State<OrderUI> {
                         ),
                       ),
                       Text(
-                        "450 B",
+                        "500 B",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Divider(
+                height: 10,
+                thickness: 1,
+                color: Colors.grey,
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: 10, left: 10),
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        "สปาเก็ตตี้",
+                        style: TextStyle(
+                          height: 3,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "x 1",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: 10, left: 10),
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        "",
+                        style: TextStyle(
+                          height: 3,
+                          fontSize: 12,
+                        ),
+                      ),
+                      Text(
+                        "250 B",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
@@ -692,7 +901,7 @@ class _OrderUIState extends State<OrderUI> {
                         ),
                       ),
                       Text(
-                        "1350 B",
+                        "1000 B",
                         style: TextStyle(
                             fontSize: 30, fontWeight: FontWeight.bold),
                       ),

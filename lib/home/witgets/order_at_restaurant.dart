@@ -1,10 +1,9 @@
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:francies_mobie_1/constants/assets.dart';
-import 'package:francies_mobie_1/constants/assets_home.dart';
+
 import 'package:francies_mobie_1/views/navbar_ui.dart';
-import 'package:francies_mobie_1/constants/assets_home.dart';
+
 
 import '../../menu/witgets/menu_page.dart';
 import '../../views/restaurant_page.dart';
