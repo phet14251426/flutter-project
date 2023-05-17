@@ -107,7 +107,7 @@ class _MenuUIState extends State<MenuUI> {
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => SingleItemPage()),
+                            builder: (context) => SingleItemPage(menuID: snapshot.data![index].uuid,)),
                       ),
                       child: Container(
                         margin: EdgeInsets.all(10),
