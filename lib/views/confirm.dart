@@ -19,7 +19,7 @@ class _MyWidgetState extends State<ConfirmUI> {
           shrinkWrap: true,
           childAspectRatio: 4,
           children: [
-            for (int i = 1; i < 5; i++,)
+            
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
                 child: Container(
@@ -52,7 +52,7 @@ class _MyWidgetState extends State<ConfirmUI> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
-                              "รายการอาหารที่ $i",
+                              "รายการอาหารที่ 1",
                               style: TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,

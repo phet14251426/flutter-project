@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   alignment: Alignment.center,
                   child: Image(
-                    image: AssetImage('assets/images/simpleLogo.png'),
+                    image: AssetImage('assets/images/SimpleLogo.png'),
                     height: 275,
                     width: 275,
                   ),

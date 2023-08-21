@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:francies_mobie_1/menu/witgets/menu_page.dart';
 
-
 class restaurantUI extends StatelessWidget {
   const restaurantUI({super.key});
 
@@ -53,7 +52,6 @@ class restaurantUI extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            
                           ],
                         ),
                       ),
@@ -70,10 +68,11 @@ class restaurantUI extends StatelessWidget {
                           child: TextButton(
                             onPressed: () {
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Menu_page(),
-                                  ));
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Menu_page(),
+                                ),
+                              );
                             },
                             child: Text(
                               'เลือก',
